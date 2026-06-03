@@ -3,6 +3,7 @@ services:
     image: jgraph/drawio:latest
     ports: ["8080:8080"]
   next-ai-draw-io:
+    image: next-ai-draw-io:latest
     build:
       context: .
       args:
