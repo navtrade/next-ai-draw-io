@@ -31,7 +31,7 @@ jobs:
       - name: Build and push with Docker Compose
         if: github.event_name != 'pull_request'
         run: |
-          docker-compose build
+          docker compose build
           docker tag next-ai-draw-io:latest ${{ env.IMAGE_NAME }}:latest
           docker tag next-ai-draw-io:latest ${{ env.IMAGE_NAME }}:$(date +%Y%m%d-%H%M%S)
           docker push ${{ env.IMAGE_NAME }}:latest
@@ -39,4 +39,4 @@ jobs:
 
       - name: Build only (for PR)
         if: github.event_name == 'pull_request'
-        run: docker-compose build
+        run: docker compose build
